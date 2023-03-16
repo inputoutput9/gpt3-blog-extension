@@ -1,6 +1,6 @@
 {
-  "name": "magic blog post generator++",
-  "description": "highlight your blog post title, we'll generate the rest",
+  "name": "Instant Startup Pitch Generator",
+  "description": "Input your startup idea. Instantly get an elevator pitch.",
   "version": "2.0",
   "manifest_version": 3,
   "icons": {
@@ -11,7 +11,7 @@
   },
   "action": {
     "default_popup": "index.html",
-    "default_title": "Generate blog post"
+    "default_title": "Generate Elevator Pitch"
   },
   "background": {
     "service_worker": "scripts/contextMenuServiceWorker.js"
