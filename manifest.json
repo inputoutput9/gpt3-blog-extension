@@ -4,10 +4,10 @@
   "version": "2.0",
   "manifest_version": 3,
   "icons": {
-    "48": "assets/48.png",
-    "72": "assets/72.png",
-    "96": "assets/96.png",
-    "144": "assets/144.png"
+    "48": "assets/48_goka.png",
+    "72": "assets/72_goka.png",
+    "96": "assets/96_goka.png",
+    "144": "assets/144_goka.png"
   },
   "action": {
     "default_popup": "index.html",
