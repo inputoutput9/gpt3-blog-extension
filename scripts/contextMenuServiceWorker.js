@@ -28,7 +28,7 @@ const sendMessage = (content) => {
 const generate = async (prompt) => {
   const key = await getKey();
   const url = 'https://api.openai.com/v1/completions';
-	
+
   const completionResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -38,11 +38,11 @@ const generate = async (prompt) => {
     body: JSON.stringify({
       model: 'text-davinci-003',
       prompt: prompt,
-      max_tokens: 1250,
-      temperature: 0.7,
+      max_tokens: 700,
+      temperature: 0.75,
     }),
   });
-	
+
   const completion = await completionResponse.json();
   return completion.choices.pop();
 }
@@ -51,7 +51,7 @@ const generateCompletionAction = async (info) => {
 	try {
 		// Send mesage with generating text (this will be like a loading indicator)
 		sendMessage('generating...');
-	
+
     const { selectionText } = info;
     const basePromptPrefix =
 		`
@@ -61,8 +61,8 @@ const generateCompletionAction = async (info) => {
 		`;
 
     const baseCompletion = await generate(`${basePromptPrefix}${selectionText}`);
- 
-	const secondPrompt = 
+
+	const secondPrompt =
 	  `
 	  Take the table of contents and title of the blog post below and generate a blog post written in thwe style of Paul Graham. Make it feel like a story. Don't just list the points. Go deep into each one. Explain why.
 
@@ -72,9 +72,9 @@ const generateCompletionAction = async (info) => {
 
 	  Blog Post:
 	  `;
-		
+
     const secondPromptCompletion = await generate(secondPrompt);
-		
+
 	// Send the output when we're all done
 	sendMessage(secondPromptCompletion.text);
   } catch (error) {
